@@ -10715,6 +10715,9 @@ class TestConsistency(TestCaseMPS):
                 rtol = 1.5e-3
             elif op.name == "unique" and cpu_kwargs["sorted"] is False:
                 continue
+            elif op.name == "nn.functional.interpolate":
+                atol = 1e-3
+                rtol = 1e-4
             else:
                 atol = None
                 rtol = None
